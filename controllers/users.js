@@ -9,7 +9,7 @@ const postUserSignup = async (req, res, next) =>
     const t = await sequelize.transaction();
     const name = req.body.fname;
     const email = req.body.femail;
-    const ph = req.body.fph;
+    const phone = req.body.fph;
     const password = req.body.fpassword;
 
    const user = await User.findAll({where : {email},})
@@ -29,6 +29,7 @@ const postUserSignup = async (req, res, next) =>
                 await User.create({
                     name : name,
                     email : email,
+                    phone : phone,
                     password : hash,
                     transaction: t
 
