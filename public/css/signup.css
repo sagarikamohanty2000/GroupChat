@@ -1,0 +1,68 @@
+body{
+    background-color:  #ffd0a2;
+}
+.header {
+    color:  #000000; 
+    height: 100px;
+    padding-left : 3px; 
+    padding-top: 20px;
+    margin-bottom: 3px;
+    margin-top: 20px;
+    margin-left: 690px;
+}
+
+
+
+.box{
+    background-color: rgb(255, 255, 255);
+    border-width: 2px;
+    border-style : solid;
+    border-color :  #FF8000; 
+    height : 510px;
+    width : 650px;
+    margin-top: 10px;
+    margin-left : 220px;
+    border-radius: 60px;
+    padding-left: 5px;
+    padding-right: 20px;
+    }
+
+    input.form-control-sm {
+       
+        width: 500px;
+        margin-left: 65px;
+        margin-right: 15px;
+        margin-top: 4px;
+    }
+    input.btn {
+        margin-top: 60px;
+        margin-left: 65px;
+        background-color:rgb(86, 84, 84); 
+        color: white; 
+        background-color:  #FF8000; ;
+        width: 150px;
+        border-radius: 4px;
+    }
+    label.form-label-name{
+        margin-top: 45px;
+        margin-left: 40px;
+        color:  #FF8000;
+        font-size: large;
+        font-weight: 550;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    label.form-label{
+         margin-top: 15px;
+         margin-left:40px;
+         color:  #FF8000;
+         font-size: large;
+         font-weight: 550;
+         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .login-link{
+        
+        font-size: 18px;
+        margin-left: 470px;
+       
+    }
