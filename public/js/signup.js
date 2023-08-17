@@ -16,7 +16,7 @@ submitBtn.onclick = async function(event)
                 fpassword
             }
             try {         
-             const response = await axios.post("http://localhost:3000/signup", obj);
+             const response = await axios.post("http://localhost:3000/user/signup", obj);
              console.log(response)
            
             }
