@@ -8,7 +8,6 @@ body{
     padding-left : 3px; 
     padding-top: 20px;
     margin-bottom: 3px;
-    margin-top: 20px;
     margin-left: 265px;
 }
 
@@ -55,6 +54,13 @@ body{
     .signup-link{
         
         font-size: 18px;
-        margin-left: 470px;
+        margin-left: 210px;
+        color : black;
+       
+    }
+
+    .forgetpassword-link{
+        font-size: 18px;
+        margin-left: 420px;
        
     }
