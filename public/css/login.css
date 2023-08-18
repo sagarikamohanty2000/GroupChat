@@ -1,6 +1,7 @@
 body{
     background-color:  #ffd0a2;
 }
+
 .header {
     color:  #FF8000; 
     height: 100px;
@@ -16,7 +17,7 @@ body{
     border-width: 2px;
     border-style : solid;
     border-color :  #FF8000; 
-    height : 620px;
+    height : 450px;
     width : 650px;
     margin-top: 10px;
     margin-left : 220px;
@@ -36,12 +37,12 @@ body{
     input.btn {
         margin-top: 60px;
         margin-left: 65px;
-        background-color:rgb(86, 84, 84); 
         color: white; 
         background-color:  #FF8000; ;
         width: 150px;
         border-radius: 14px;
     }
+
     label.form-label{
          margin-top: 15px;
          margin-left:40px;
@@ -51,7 +52,7 @@ body{
          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
-    .login-link{
+    .signup-link{
         
         font-size: 18px;
         margin-left: 470px;
