@@ -7,48 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/css/signup.css">
-    <title>Sign Up page</title>
+    <link rel="stylesheet" href="../public/css/login.css">
+    <title>Log In page</title>
 </head>
 
 <body>
-  
+   
     <div class="container">
         <div class="box">
-
             <header id="mainHeader" class="header">
                 <div class="container">
                     <div class="row">
-                        <h2 id="headerTitle">Sign Up</h2>
+                        <h2 id="headerTitle">Log In</h2>
                     </div>
                 </div>
             </header>
-
             <form action="#">
-
-                <label for="fname" class="form-label">Enter your name : </label>
-                <input type="text" id="fname" name="fname" class="form-control-sm " required>
 
                 <label for="femail" class="form-label">Enter your email id : </label>
                 <input type="email" id="femail" name="femail" class="form-control-sm" required>
 
-                <label for="fph" class="form-label">Enter your phone number : </label>
-                <input type="tel" id="fph" name="fph" class="form-control-sm" required>
-
                 <label for="fpassword" class="form-label">Password : </label>
                 <input type="password" id="fpassword" name="fpassword" class="form-control-sm" required>
 
-                <input type="submit" id="submit" class="btn" value="Sign Up">
-
+                    <input type="submit" id="submit-login" class="btn" value="Log In">
             </form>
-            <div class="login-link">
-                <p><a href="login.html">Log in </a> page </p>
+            <div class="signup-link">
+                <p><a href="signup.html">Sign up </a> page </p>
             </div>
-
         </div>
     </div>
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
-    <script src="../public/js/signup.js"></script>
+    <script src="../public/js/login.js"></script>
 </body>
 
 </html>
