@@ -10,12 +10,18 @@ const sequelize = require('./util/database');
 const app = express();
 
 const userRoutes = require('./routes/users');
+const messageRoutes = require('./routes/message');
 
+const User = require('./models/users');
+const Message = require('./models/message');
 
 app.use(cors());
 app.use(bodyParser.json({extended : false}));
 app.use(userRoutes);
+app.use(messageRoutes);
 
+User.hasMany(Message);
+Message.belongsTo(User,{constraints:true, onDelete : 'CASCADE'});
 
 sequelize.sync()
 .then(result => {

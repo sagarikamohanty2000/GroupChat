@@ -49,10 +49,10 @@ const postUserSignup = async (req, res, next) =>
             }
 }
 
-function tokengenerate(id)
+function generateAccessToken(id)
 {
     console.log(process.env.SECRECT_KEY)
-    return jwt.sign({id:id},process.env.SECRET_KEY);
+    return jwt.sign({id : id},process.env.SECRET_KEY);
 }
 
 const postUserLogin = async(req,res,next) => {
@@ -62,23 +62,20 @@ const postUserLogin = async(req,res,next) => {
 
     const t = await sequelize.transaction();
     try {
-    const user = await User.findAll({where : email });
+    const user = await User.findAll({where : {email}, });
     if(user.length > 0)
     {
-        bcrypt.compare(password , user[0].password ,(err,response) => {
-        
+         bcrypt.compare(password , user[0].password ,(err,response) => {
             if(response === true)
-            {
-                bcrypt.hash(user[0].id,10,async (err,hash) => {
-                    return res.status(200).json({
+            { 
+                return  res.status(200).json({
                         success: "true",
                         message:"Successfully logged in",
-                        token: generateAccessToken(hash)
+                        token: generateAccessToken(user[0].id)
                     })
-                })
             }
 
-            if(err) {
+           else if(err) {
                 res.status(500). json({
                     success : "false",
                     message : "Something went wrong"
@@ -92,7 +89,6 @@ const postUserLogin = async(req,res,next) => {
                     })
             }
         })
-        
     }
 
     else {
