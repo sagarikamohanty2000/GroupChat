@@ -1,8 +1,7 @@
 const sequelize = require('../util/database');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 const Message = require('../models/message');
+const User = require('../models/users');
 
 const postSentMessage = async (req, res, next) =>
 {
@@ -28,7 +27,23 @@ const postSentMessage = async (req, res, next) =>
                     
 }
 
+const getUserMessage = async (req, res, next) => {
+
+try{
+const messages = await Message.findAll({where : {userId : req.user.id}});
+return res.status(200).json({
+    success: true,
+    message:'MESSAGE',
+    msg : messages
+})
+
+}
+catch(err){
+    console.log(err);
+}
+}
 
 module.exports = {
-    postSentMessage
+    postSentMessage,
+    getUserMessage
 }
