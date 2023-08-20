@@ -30,11 +30,15 @@ const postSentMessage = async (req, res, next) =>
 const getUserMessage = async (req, res, next) => {
 
 try{
-const messages = await Message.findAll({where : {userId : req.user.id}});
+const messages = await Message.findAll();
+const users = await User.findAll();
 return res.status(200).json({
     success: true,
     message:'MESSAGE',
-    msg : messages
+    msg : messages,
+    user : users,
+    currentUser : req.user.id
+
 })
 
 }
