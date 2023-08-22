@@ -6,6 +6,6 @@ const authMiddleware = require('../middleware/auth');
 
 router.post('/message/',authMiddleware.authenticateUser,messageController.postSentMessage);
 
-router.get('/message/',authMiddleware.authenticateUser,messageController.getUserMessage);
+router.get('/message/:groupId',authMiddleware.authenticateUser,messageController.getUserMessage);
 
 module.exports = router;

@@ -16,7 +16,7 @@ loginBtn.onclick = async function(event)
              const response = await axios.post("http://localhost:3000/user/login", obj);
              alert("You have successully logged in");
              localStorage.setItem('token',response.data.token);
-             window.location.href="../views/chatapp.html"
+             window.location.href="../views/landingpage.html"
            
             }
              catch(err)  {
