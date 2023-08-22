@@ -1,17 +1,20 @@
 const sequelize = require('../util/database');
 
 const Message = require('../models/message');
-const User = require('../models/users');
+const User = require('../models/user');
+const Group = require('../models/group');
 
 const postSentMessage = async (req, res, next) =>
 {
     const t = await sequelize.transaction();
     const msg = req.body.msg;
+    const groupId = req.body.groupId;
     const userId = req.user.id;
     try {
                 await Message.create({
                     msg : msg,
                     userId : userId,
+                    groupId : groupId,
                     transaction: t
 
                 })
@@ -30,8 +33,8 @@ const postSentMessage = async (req, res, next) =>
 const getUserMessage = async (req, res, next) => {
 
 try{
-const messages = await Message.findAll();
-const users = await User.findAll();
+const messages = await Message.findAll({where : {groupId : req.params.groupId}});
+const users = await Group.findAll({where: {id: req.params.groupId},include : User});
 return res.status(200).json({
     success: true,
     message:'MESSAGE',

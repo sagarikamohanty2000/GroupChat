@@ -1,17 +1,23 @@
 const sendBtn = document.getElementById('submit');
+const homePageBtn = document.getElementById('homepage');
 const token = localStorage.getItem('token');
 const ulTag = document.getElementById('message-list');
+
+const groupId = localStorage.getItem('groupId');
 
 sendBtn.onclick = async function(event)
 {
     event.preventDefault();
     const msg = document.getElementById('message').value;
     obj = {
-        msg
+        msg,
+        groupId
     }
 
     try{
+        
     const response = await axios.post('http://localhost:3000/message/', obj, {headers: {'Authorization' : token}});
+    console.log("Group id >>>>>>>>"+groupId)
     console.log(response);
     }
 
@@ -36,7 +42,8 @@ const showMessagesOnScreen =  function(obj) {
 
 window.onload = (async () => {
     try{
-    const response = await axios.get('http://localhost:3000/message/',{headers: {'Authorization' : token}})
+    const response = await axios.get(`http://localhost:3000/message/${groupId}`,{headers: {'Authorization' : token}})
+    console.log("Group id >>>>>>>>"+response)
      showMessageWindowOnLoad(response.data);
     }
 
@@ -47,14 +54,14 @@ window.onload = (async () => {
 
 function showMessageWindowOnLoad(obj){
    
-    console.log(obj);
+    console.log(obj.msg);
    // ulTag.innerHTML='';
     for(var i = 0; i<obj.msg.length; i++)
     {
-        for(var j=0; j<obj.user.length; j++)
-        {   if(obj.msg[i].userId === obj.user[j].id )
+        for(var j=0; j<obj.user[0].users.length; j++)
+        {   if(obj.msg[i].userId === obj.user[0].users[j].id )
             {
-                if(obj.user[j].id === obj. currentUser)
+                if(obj.user[0].users[j].id === obj. currentUser)
                 {
                     var list = document.createElement('li');
                     list.className="list-group-item";
@@ -71,11 +78,16 @@ function showMessageWindowOnLoad(obj){
                     list.id=`${obj.msg[i].id}`;
                 
                     //Data ShowCased on the screen
-                    list.textContent = obj.user[j].name +" : "+ obj.msg[i].msg;
+                    list.textContent = obj.user[0].users[j].name +" : "+ obj.msg[i].msg;
                     ulTag.appendChild(list);
                 }
             }
         }   
         
     }
+}
+
+homePageBtn.onclick = async function(event){
+    event.preventDefault();
+    window.location.href = "../views/homepage.html";
 }
