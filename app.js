@@ -11,7 +11,7 @@ const app = express();
 
 const userRoutes = require('./routes/users');
 const messageRoutes = require('./routes/message');
-const groupRoutes = require('./routes/chat_group');
+const groupRoutes = require('./routes/groups');
 
 const User = require('./models/user');
 const Message = require('./models/message');

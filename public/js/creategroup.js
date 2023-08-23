@@ -1,4 +1,5 @@
 const createBtn = document.getElementById('submit-create');
+const homePageBtn = document.getElementById('homepage');
 
 const token = localStorage.getItem('token');
 
@@ -18,5 +19,10 @@ createBtn.onclick = async function(event){
     catch(err) {
         console.log(err);
     }
+}
+
+homePageBtn.onclick = async function(event){
+    event.preventDefault();
+    window.location.href = "../views/homepage.html";
 }
 

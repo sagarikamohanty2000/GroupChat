@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/css/creategroup.css">
-    <title>Chat Group page</title>
+    <link rel="stylesheet" href="../public/css/adduser.css">
+    <title>User Page</title>
 </head>
 
 <body>
@@ -21,24 +21,23 @@
             <header id="mainHeader" class="header">
                 <div class="container">
                     <div class="row">
-                        <h2 id="headerTitle">Create Group</h2>
+                        <h1 id="headerTitle">User</h1>
                     </div>
+                    <p class="text">Add user to a group </p>
                 </div>
-            </header>
-            <form action="#">
+            
+            </header> 
 
+            <form action="#">
                 <label for="fname" class="form-label">Group Name : </label>
                 <input type="text" id="fname" name="fname" class="form-control-sm" required>
 
-                    <input type="submit" id="submit-create" class="btn" value="Create">
+                    <input type="submit" id="submit-add" class="btn" value="Add User">
             </form>
-            <div class="Group-link">
-                <p>Enter <a href=""> group chat</a> </p>
-            </div>
         </div>
     </div>
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
-    <script src="../public/js/creategroup.js"></script>
+    <script src="../public/js/adduser.js"></script>
 </body>
 
 </html>
