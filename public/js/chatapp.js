@@ -1,8 +1,10 @@
 const sendBtn = document.getElementById('submit');
 const homePageBtn = document.getElementById('homepage');
+const allUserBtn = document.getElementById('allUsers');
+
 const token = localStorage.getItem('token');
 const ulTag = document.getElementById('message-list');
-
+const ulUserTag = document.getElementById('user-list');
 const groupId = localStorage.getItem('groupId');
 
 sendBtn.onclick = async function(event)
@@ -64,7 +66,7 @@ function showMessageWindowOnLoad(obj){
                 if(obj.user[0].users[j].id === obj. currentUser)
                 {
                     var list = document.createElement('li');
-                    list.className="list-group-item";
+                    list.className="list-msg-item";
                     list.id=`${obj.msg[i].id}`;
                 
                     //Data ShowCased on the screen
@@ -74,7 +76,7 @@ function showMessageWindowOnLoad(obj){
                 else
                  {
                     var list = document.createElement('li');
-                    list.className="list-group-item";
+                    list.className="list-msg-item";
                     list.id=`${obj.msg[i].id}`;
                 
                     //Data ShowCased on the screen
@@ -90,4 +92,40 @@ function showMessageWindowOnLoad(obj){
 homePageBtn.onclick = async function(event){
     event.preventDefault();
     window.location.href = "../views/homepage.html";
+}
+
+allUserBtn.onclick = async function(event) {
+
+    try{
+    const response = await axios.get(`http://localhost:3000/user/${groupId}`,{headers: {'Authorization' : token}});
+    console.log(response.data.data[0].users);
+
+    ulUserTag.innerHTML =''; 
+    const datavalues = response.data.data[0].users;
+   for(let i=0; i<datavalues.length; i++)
+   {
+    console.log(datavalues[i].id);
+    var list = document.createElement('li');
+    list.className = ('list-user')
+    var userBtn = document.createElement('button');
+    userBtn.className = 'btn width: 30px';
+    userBtn.appendChild(document.createTextNode(`${datavalues[i].name}`));
+    userBtn.onclick = (async () => {
+        
+        try{
+               window.location.href = "../views/user.html";
+               localStorage.setItem('userId', datavalues[i].id);
+            
+        }
+        catch(err) {
+            console.log(err);
+        }    
+       })
+       list.appendChild(userBtn);
+       ulUserTag.appendChild(list);
+   }
+   }
+   catch(error) {
+      console.log(error)
+   }
 }

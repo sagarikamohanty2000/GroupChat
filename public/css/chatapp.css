@@ -27,7 +27,7 @@ body{
     color:  #FF8000; 
     height: 100px;
     padding-left : 3px; 
-    margin-left: 450px;
+    margin-left: 350px;
 }
 
 input{
@@ -58,6 +58,26 @@ input.btn {
     border-radius: 4px; 
 }
 
+.btn-allusers{
+    margin-top: 20px;
+    margin-left: 750px;
+    padding-left: 45px;
+    color: white; 
+    background-color:  #FF8000; ;
+    width: 150px;
+    height: 35px;
+    border-radius: 8px;
+
+}
+
+.user-list {
+ margin-left : 710px;
+}
+.list-user{
+    padding-top:4px;  
+    
+}
+
 .card{
     background-color: #ffd0a2; 
 }
@@ -70,10 +90,11 @@ p{
     
 }
 
-li{
+.list-msg-item{
     background-color: white; 
     padding-left: 20px; 
     padding-top:4px;
     height:35px; 
     
 }
+

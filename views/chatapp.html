@@ -24,16 +24,22 @@
         <header id="mainHeader" class="header">
             <div class="container">
                 <div class="row">
-                    <h2 id="headerTitle">Chat App</h2>
+                    <div class="col-2 my-2 text-right">
+                        <input type="btn" id="allUsers" class="btn-allusers" value="All Users">
+                           <ul style="list-style: none;" id="user-list" class = "user-list">
+                           </ul>
+                     </div>
+                     
+                    <div class="col-10 my-2">
+                      <h2 id="headerTitle">Chat App</h2>
+                    </div>
                 </div>
             </div>
         </header>
          <div id="main" class="card card-body">
-            <p >You joined</p>
-            <div id="ul-chat-div">
-                <ul id="message-list" class="message-list">
+            
+                <ul style="list-style: none;" id="message-list" class="message-list">
                 </ul>
-            </div>
          </div>   
        
       </div>

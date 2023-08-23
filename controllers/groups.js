@@ -14,7 +14,7 @@ const postCreateGroup = async (req, res, next) => {
                 groupName : name,
                 transaction: t
                 })
-               await group.addUser(req.user.id);
+               await group.addUser(req.user.id, { through: { isAdmin: true } });
                 console.log('Group Created');
                 await t.commit();
                 res.status(200).json({
@@ -43,7 +43,29 @@ const getAllGroup = async (req, res, next) =>{
         console.log(err);
     }
 }
+
+const adduserGroup = async (req, res, next) => {
+    try {
+        const group = await Group.findAll({where : {groupName : req.body.groupName}})
+      //  if(user.length > 0){
+        await group[0].addUser(req.body.userId, {through: {isAdmin: false}});
+            res.status(200).json({
+            success: "true",
+            message : 'Successfully user added to the group'})
+        //}
+        // else {
+        //     res.status(401).json({
+        //         success: "false",
+        //         message : 'User doesnot have Admin authorities'})
+        // }
+    }
+    catch(err){
+        console.log(err);
+    }
+
+}
 module.exports = {
     postCreateGroup,
-    getAllGroup
+    getAllGroup,
+    adduserGroup
 }
