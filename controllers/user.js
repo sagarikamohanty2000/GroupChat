@@ -178,9 +178,7 @@ const removeUser = async (req, res, next) =>{
 const getAllUsers = async(req,res, next) => {
     
     try{
-        console.log("USERS >>>>>>")
         const users = await User.findAll();
-        console.log("ALL USERS >>>>>>", users)
              res.status(200).json({
                 success : "true",
                 message : "All Users",
