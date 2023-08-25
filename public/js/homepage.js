@@ -1,6 +1,8 @@
 const allGroupsBtn = document.getElementById('allGroups');
 const createGroupBtn = document.getElementById('createGroup');
 const allUsersBtn = document.getElementById('Users');
+const logoutBtn = document.getElementById('logout');
+
 
 const token = localStorage.getItem('token');
 const ulTag = document.getElementById('group-list');
@@ -93,4 +95,11 @@ createGroupBtn.onclick = async function(event)
 {
     event.preventDefault();
     window.location.href = "../views/creategroup.html";
+}
+
+logoutBtn.onclick = async function(event){
+    localStorage.clear();
+    event.preventDefault();
+  
+     window.location.href="../views/login.html"
 }
