@@ -46,18 +46,29 @@ const getAllGroup = async (req, res, next) =>{
 
 const adduserGroup = async (req, res, next) => {
     try {
-        const group = await Group.findAll({where : {groupName : req.body.groupName}})
-      //  if(user.length > 0){
-        await group[0].addUser(req.body.userId, {through: {isAdmin: false}});
-            res.status(200).json({
-            success: "true",
-            message : 'Successfully user added to the group'})
-        //}
-        // else {
-        //     res.status(401).json({
-        //         success: "false",
-        //         message : 'User doesnot have Admin authorities'})
-        // }
+        const isAdmin = await GroupUser.findAll({where : {userId : req.user.id, groupId : req.body.groupId, isAdmin : true}});
+        
+        if(isAdmin.length > 0){
+            const user = await GroupUser.findAll({where: {userId : req.body.userId, groupId : req.body.groupId}})
+            if(user.length === 0 ){
+            const group = await Group.findAll({where : {id : req.body.groupId}})
+            await group[0].addUser(req.body.userId, {through: {isAdmin: false}});
+                res.status(200).json({
+                success: "true",
+                message : 'Successfully user added to the group'})
+            }
+            else {
+                res.status(400).json({
+                    success: "false",
+                    message : 'User is already part of the group'})
+
+            }
+        }
+        else {
+            res.status(401).json({
+                success: "false",
+                message : 'User doesnot have Admin authorities'})
+        }
     }
     catch(err){
         console.log(err);

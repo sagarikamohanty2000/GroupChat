@@ -14,26 +14,27 @@
 <body>
    
     <div class="container">
-        <div class="box">
-            <form>
-                <input type="btn" id="homepage" class="btn-home" value="Home Page">
-            </form>
-            <header id="mainHeader" class="header">
-                <div class="container">
-                    <div class="row">
-                        <h1 id="headerTitle">User</h1>
-                    </div>
-                    <p class="text">Add user to a group </p>
+        <div class="row">
+            <div class="col-8 my-2">
+                <div class="box"> 
+                    <form>
+                        <input type="btn" id="homepage" class="btn-home" value="Home Page">
+                    </form>
+                    <header id="mainHeader">
+                        <div class="container">
+                            <h2 class="header" id="headerTitle">User</h2>
+                            <p class="text">Add user to a group </p>
+                            
+                        </div>
+                    </header> 
                 </div>
-            
-            </header> 
+            </div>
+            <div class="col-4 my-2">
+                <h3>Groups</h3>
+                <ul style="list-style: none;" id="group-list" class="group-list">
 
-            <form action="#">
-                <label for="fname" class="form-label">Group Name : </label>
-                <input type="text" id="fname" name="fname" class="form-control-sm" required>
-
-                    <input type="submit" id="submit-add" class="btn" value="Add User">
-            </form>
+                </ul>
+            </div>
         </div>
     </div>
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
