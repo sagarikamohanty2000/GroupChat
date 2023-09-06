@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/css/user.css">
+    <title>User page</title>
+</head>
+
+<body>
+   
+    <div class="container">
+        <div class="box">
+            <div class="Group-link">
+                <p><a href="../views/chatapp.html"> Return to Group chat</a> </p>
+            </div>
+            <header id="mainHeader" class="header">
+                <div class="container">
+                    <div class="row">
+                      <u> <h2 id="headerTitle">User</h2> </u>
+                    </div>
+                </div>
+            </header>
+            <p class="text"> Make user an admin or remove the user from the group</p>
+            <form action="#">
+
+                <input type="submit" id="admin" class="btn" value="Admin">
+
+                    <input type="submit" id="remove" class="btn" value="Remove">
+            </form>
+        </div>
+    </div>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="../public/js/user.js"></script>
+</body>
+
+</html>

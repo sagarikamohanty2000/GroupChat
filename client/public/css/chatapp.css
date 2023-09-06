@@ -1,0 +1,100 @@
+body{
+    background-color:  #ffd0a2; 
+}
+
+.btn-home{
+    margin-top: 8px;
+    margin-left: 8px;
+    padding-left: 10px;
+    color: white; 
+    background-color: #FF8000;
+    width: 120px;
+    border-radius: 6px;
+}
+
+.box{
+    background-color:  white;
+    border-color :  #FF8000; 
+    height : 650px;
+    width : 1100px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    }
+
+.header {
+    color:  #FF8000; 
+    height: 100px;
+    padding-left : 3px; 
+    margin-left: 350px;
+}
+
+input{
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 893px;
+
+}
+
+input.btn {
+    margin-top: 3px;
+    margin-left: 4px;
+    color: white; 
+    background-color:  #FF8000; ;
+    width: 150px;
+    border-radius: 14px;
+}
+
+.logout-btn{
+    margin-top: 3px;
+    margin-left: 350px;
+    background-color:rgb(255, 255, 255); 
+    color: rgb(247, 29, 29); 
+    font-weight: 500;
+    width: 80px;
+    float: right;
+    order: 3;
+    border-radius: 4px; 
+}
+
+.btn-allusers{
+    margin-top: 20px;
+    margin-left: 750px;
+    padding-left: 45px;
+    color: white; 
+    background-color:  #FF8000; ;
+    width: 150px;
+    height: 35px;
+    border-radius: 8px;
+
+}
+
+.user-list {
+ margin-left : 710px;
+}
+.list-user{
+    padding-top:4px;  
+    
+}
+
+.card{
+    background-color: #ffd0a2; 
+}
+
+p{
+    background-color: white; 
+    padding-left: 20px; 
+    padding-top:4px;
+    height:35px; 
+    
+}
+
+.list-msg-item{
+    background-color: white; 
+    padding-left: 20px; 
+    padding-top:4px;
+    height:35px; 
+    
+}
+

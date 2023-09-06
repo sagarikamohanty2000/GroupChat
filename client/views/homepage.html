@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/css/homepage.css">
+    <title>Home page</title>
+</head>
+
+<body>
+  
+    <div class="container">
+            <div class="row">
+                <div class="col-2 my-2 ">
+                    <input type="btn" id="Users" class="btn-alluser" value="All Users">
+                        <ul style="list-style: none;" id="user-list" class="user-list">
+                        </ul>
+                </div>
+                <div class="col-8 my-2">
+                    <div class="box">
+                        <header id="mainHeader" >
+                            <div class="container">
+                                <input type="btn" id="createGroup" class="btn-group" value="Create Group">
+                                    <h1 id="headerTitle" class="header">Home Page</h1>
+                            </div>
+                        </header>
+                        <p> Welcome to Group chat !</p>
+                <input type="btn" id="logout" class="btn-logout" value="LogOut">
+                    </div>
+                </div>
+                <div class="col-2 my-2 ">
+                    <input type="btn" id="allGroups" class="btn-allgroup" value="All Groups">
+                        <ul style="list-style: none;" id="group-list" class="group-list">
+                        </ul>
+                </div>
+                
+            </div>
+       
+    </div>
+        
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="../public/js/homepage.js"></script>
+</body>
+
+</html>

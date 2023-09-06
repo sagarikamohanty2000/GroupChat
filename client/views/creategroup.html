@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/css/creategroup.css">
+    <title>Chat Group page</title>
+</head>
+
+<body>
+   
+    <div class="container">
+        <div class="box">
+            <form>
+                <input type="btn" id="homepage" class="btn-home" value="Home Page">
+            </form>
+            <header id="mainHeader" class="header">
+                <div class="container">
+                    <div class="row">
+                        <h2 id="headerTitle">Create Group</h2>
+                    </div>
+                </div>
+            </header>
+            <form action="#">
+
+                <label for="fname" class="form-label">Group Name : </label>
+                <input type="text" id="fname" name="fname" class="form-control-sm" required>
+
+                    <input type="submit" id="submit-create" class="btn" value="Create">
+            </form>
+            
+        </div>
+    </div>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script src="../public/js/creategroup.js"></script>
+</body>
+
+</html>
