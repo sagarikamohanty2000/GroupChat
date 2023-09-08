@@ -7,6 +7,8 @@ const allUserBtn = document.getElementById('allUsers');
 
 const token = localStorage.getItem('token');
 const ulTag = document.getElementById('message-list');
+
+
 const ulUserTag = document.getElementById('user-list');
 const groupId = localStorage.getItem('groupId');
 
@@ -14,20 +16,11 @@ const groupId = localStorage.getItem('groupId');
 const Uname = prompt('What is your name?')
 socket.emit('new-user', Uname)
 socket.on('connect', () => {
-    showMessagesOnScreen('You joined')
+    alert('You joined');
 })
-
 
 socket.on('chat-message', (Uname, message) => {
     showMessagesOnScreen(`${Uname}: ${message}`)
-})
-
-socket.on('user-connected', Uname => {
-    showMessagesOnScreen(`${Uname} connected`)
-})
-
-socket.on('user-disconnected', Uname => {
-    showMessagesOnScreen(`${Uname} disconnected`)
 })
 
 sendBtn.onclick = async function(event)
@@ -54,15 +47,15 @@ sendBtn.onclick = async function(event)
 }
 
 const showMessagesOnScreen =  function(message) {
-    var list = document.createElement('li');
-   list.className="list-group-item";
+    var list = document.createElement('p');
+    
+  // list.className="list-group-item";
    //list.id=`${obj.id}`;
-
-    console.log(message);
    //Data ShowCased on the screen
    list.textContent = message;
-
    ulTag.appendChild(list);
+   list.scrollIntoView(false);
+
    
 }
 
@@ -89,23 +82,26 @@ function showMessageWindowOnLoad(obj){
             {
                 if(obj.user[0].users[j].id === obj. currentUser)
                 {
-                    var list = document.createElement('li');
+                    var list = document.createElement('p');
                     list.className="list-msg-item";
                     list.id=`${obj.msg[i].id}`;
                 
                     //Data ShowCased on the screen
                     list.textContent =  "You : "+ obj.msg[i].msg;
                     ulTag.appendChild(list);
+                    list.scrollIntoView(false);
+                    
                 }
                 else
                  {
-                    var list = document.createElement('li');
+                    var list = document.createElement('p');
                     list.className="list-msg-item";
                     list.id=`${obj.msg[i].id}`;
                 
                     //Data ShowCased on the screen
                     list.textContent = obj.user[0].users[j].name +" : "+ obj.msg[i].msg;
                     ulTag.appendChild(list);
+                    list.scrollIntoView(false);
                 }
             }
         }   

@@ -1,6 +1,6 @@
 const io = require('socket.io')(8080, {
   cors:{
-    origin: ["http://localhost:3000"],
+    origin: ['http://127.0.0.1:3000'],
   },
 })
 
@@ -15,7 +15,7 @@ io.on('connection', socket => {
     socket.broadcast.emit('chat-message', users[socket.id],  message )
   })
   socket.on('disconnect', () => {
-    socket.broadcast.emit('user-disconnected', users[socket.id])
+   // socket.broadcast.emit('user-disconnected', users[socket.id])
     delete users[socket.id]
   })
 })

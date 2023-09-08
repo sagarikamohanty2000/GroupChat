@@ -62,7 +62,7 @@ const postUserLogin = async(req,res,next) => {
     const email = req.body.femail;
     const password = req.body.fpassword;
 
-    const t = await sequelize.transaction();
+    //const t = await sequelize.transaction();
     try {
     const user = await User.findAll({where : {email}, });
     if(user.length > 0)

@@ -33,7 +33,10 @@ const postSentMessage = async (req, res, next) =>
 const getUserMessage = async (req, res, next) => {
 
 try{
-const messages = await Message.findAll({where : {groupId : req.params.groupId}});
+const messages = await Message.findAll({where : {groupId : req.params.groupId}//, 
+    // order:[['id','DESC']],
+     //limit: 9,
+});
 const users = await Group.findAll({where: {id: req.params.groupId},include : User});
 return res.status(200).json({
     success: true,

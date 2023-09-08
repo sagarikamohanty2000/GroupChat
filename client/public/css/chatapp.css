@@ -42,7 +42,7 @@ input.btn {
     margin-left: 4px;
     color: white; 
     background-color:  #FF8000; ;
-    width: 150px;
+    width: 120px;
     border-radius: 14px;
 }
 
@@ -79,7 +79,11 @@ input.btn {
 }
 
 .card{
+    height: 500px;
+    width: 1050px;
     background-color: #ffd0a2; 
+    padding-right: 60px;
+    margin-left:15px
 }
 
 p{
@@ -97,4 +101,11 @@ p{
     height:35px; 
     
 }
+
+
+
+#message-list {
+   overflow-y: scroll;
+    padding-block: 5px;
+  }
 
