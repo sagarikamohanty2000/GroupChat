@@ -1,3 +1,5 @@
+
+
 const allGroupsBtn = document.getElementById('allGroups');
 const createGroupBtn = document.getElementById('createGroup');
 const allUsersBtn = document.getElementById('Users');
@@ -38,6 +40,7 @@ allGroupsBtn.onclick = async function (event) {
                     window.location.href = "../views/chatapp.html";
                     // try
                  localStorage.setItem('groupId', datavalues[i].id);
+                 localStorage.setItem('groupName',datavalues[i].groupName);
                     // console.log(response);
                     // }
                     // catch(error) {

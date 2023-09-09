@@ -27,7 +27,7 @@ body{
     color:  #FF8000; 
     height: 100px;
     padding-left : 3px; 
-    margin-left: 350px;
+    margin-left: 330px;
 }
 
 input{
@@ -60,7 +60,7 @@ input.btn {
 
 .btn-allusers{
     margin-top: 20px;
-    margin-left: 750px;
+    margin-left: 780px;
     padding-left: 45px;
     color: white; 
     background-color:  #FF8000; ;
@@ -71,10 +71,10 @@ input.btn {
 }
 
 .user-list {
- margin-left : 710px;
+ margin-left : 750px;
 }
 .list-user{
-    padding-top:4px;  
+    padding-top:8px;  
     
 }
 
@@ -90,7 +90,7 @@ p{
     background-color: white; 
     padding-left: 20px; 
     padding-top:4px;
-    height:35px; 
+    height:auto; 
     
 }
 
