@@ -11,8 +11,11 @@ io.on('connection', socket => {
     users[socket.id] = Uname
     socket.broadcast.emit('user-connected', Uname)
   })
-  socket.on('send-chat-message', message => {
-    socket.broadcast.emit('chat-message', users[socket.id],  message )
+  socket.on('send-chat-message', (message,room) => {
+    socket.to(room).emit('chat-message', users[socket.id],  message )
+  })
+  socket.on("join-room", room => {
+    socket.join(room);
   })
   socket.on('disconnect', () => {
    // socket.broadcast.emit('user-disconnected', users[socket.id])

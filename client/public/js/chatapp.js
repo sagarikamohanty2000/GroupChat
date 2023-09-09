@@ -4,13 +4,14 @@ const socket = io('http://localhost:8080')
 const sendBtn = document.getElementById('submit');
 const homePageBtn = document.getElementById('homepage');
 const allUserBtn = document.getElementById('allUsers');
+const headerTitle = document.getElementById('headerTitle');
 
 const token = localStorage.getItem('token');
 const ulTag = document.getElementById('message-list');
-
-
 const ulUserTag = document.getElementById('user-list');
+
 const groupId = localStorage.getItem('groupId');
+const groupName = localStorage.getItem('groupName');
 
 
 const Uname = prompt('What is your name?')
@@ -36,6 +37,7 @@ sendBtn.onclick = async function(event)
         
     const response = await axios.post('http://localhost:3000/message/', obj, {headers: {'Authorization' : token}});
     console.log("Group id >>>>>>>>"+groupId)
+  
     console.log(response);
     }
 
@@ -43,7 +45,8 @@ sendBtn.onclick = async function(event)
         console.log(err);
     }
     showMessagesOnScreen(`You: ${msg}`);
-    socket.emit('send-chat-message', msg)
+    
+    socket.emit('send-chat-message', msg,groupId)
 }
 
 const showMessagesOnScreen =  function(message) {
@@ -61,6 +64,8 @@ const showMessagesOnScreen =  function(message) {
 
 window.onload = (async () => {
     try{
+    socket.emit('join-room', groupId);
+    headerTitle.innerHTML=`${groupName}`;
     const response = await axios.get(`http://localhost:3000/message/${groupId}`,{headers: {'Authorization' : token}})
     console.log(response)
      showMessageWindowOnLoad(response.data);
@@ -83,7 +88,7 @@ function showMessageWindowOnLoad(obj){
                 if(obj.user[0].users[j].id === obj. currentUser)
                 {
                     var list = document.createElement('p');
-                    list.className="list-msg-item";
+                    //list.className="list-msg-item";
                     list.id=`${obj.msg[i].id}`;
                 
                     //Data ShowCased on the screen
