@@ -33,7 +33,7 @@
                      </div>
                      
                     <div class="col-10 my-2">
-                      <h2 id="headerTitle">Chat App</h2>
+                      <h2 id="headerTitle"></h2>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,10 @@
 
       <form action="#">
         <div class="form-inline p-3 ">
-            <input type="text" id="message" name="message" class=" form-control-sm" required>
+
+            <input type="file" id="fileUpload" class="form-control-sm" accept="image/*">
+
+            <input type="text" id="message" name="message" class=" form-control-sm" placeholder="Type a message...">
             <input type="submit" id="submit" class="btn" value="Send">
         </div>
     </form>
