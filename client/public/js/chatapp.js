@@ -1,10 +1,11 @@
 //import {io} from "socket.io-client"
-const socket = io('http://localhost:8080')
+const socket = io('http://localhost:8080');
 
 const sendBtn = document.getElementById('submit');
 const homePageBtn = document.getElementById('homepage');
 const allUserBtn = document.getElementById('allUsers');
 const headerTitle = document.getElementById('headerTitle');
+const fileUpload = document.getElementById('fileUpload');
 
 const token = localStorage.getItem('token');
 const ulTag = document.getElementById('message-list');
@@ -12,7 +13,6 @@ const ulUserTag = document.getElementById('user-list');
 
 const groupId = localStorage.getItem('groupId');
 const groupName = localStorage.getItem('groupName');
-
 
 const Uname = prompt('What is your name?')
 socket.emit('new-user', Uname)
@@ -24,9 +24,37 @@ socket.on('chat-message', (Uname, message) => {
     showMessagesOnScreen(`${Uname}: ${message}`)
 })
 
+fileUpload.addEventListener('change', function(e) {
+ const file = e.target.files[0];
+ if(file){
+    alert('click Send to share file');
+ }
+
+ else{
+    alert('something went wrong');
+ }
+});
+
 sendBtn.onclick = async function(event)
 {
     event.preventDefault();
+    const file = fileUpload.value;
+        if(file){
+        const filedata = fileUpload.value;
+        console.log('file Send'+fileUpload.value);
+
+        try{
+            const response = await axio.post('http://localhost:3000/fileUpload/',filedata, {headers: {'Authorization' : token }});
+            console.log(response);
+            showMessagesOnScreen(`You: ${filedata}`);
+        socket.emit('send-chat-message', filedata,groupId);
+        }
+        catch(err){
+         alert('Failed to share the file');
+        }
+        
+    }
+    else {
     const msg = document.getElementById('message').value;
     obj = {
         msg,
@@ -39,14 +67,16 @@ sendBtn.onclick = async function(event)
     console.log("Group id >>>>>>>>"+groupId)
   
     console.log(response);
+    showMessagesOnScreen(`You: ${msg}`);
+    
+    socket.emit('send-chat-message', msg,groupId)
     }
 
     catch(err) {
         console.log(err);
     }
-    showMessagesOnScreen(`You: ${msg}`);
-    
-    socket.emit('send-chat-message', msg,groupId)
+   
+ }
 }
 
 const showMessagesOnScreen =  function(message) {
