@@ -21,6 +21,8 @@ const Group = require('./models/group');
 const GroupUser = require('./models/group_user');
 const ForgetPwd = require('./models/forget_password')
 
+const { archiveCron } = require("./services/chatArchiveServices");
+
 app.use(cors());
 app.use(bodyParser.json({extended : false}));
 app.use(userRoutes);
@@ -49,3 +51,5 @@ sequelize.sync()
 app.listen(3000);
 })
 .catch(err => console.log(err));
+
+archiveCron.start();

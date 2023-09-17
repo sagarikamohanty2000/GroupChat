@@ -53,7 +53,6 @@ const postUserSignup = async (req, res, next) =>
 
 function generateAccessToken(id)
 {
-    console.log(process.env.SECRECT_KEY)
     return jwt.sign({id : id},process.env.SECRET_KEY);
 }
 
@@ -125,7 +124,7 @@ const getAllUsersGroups = async(req, res, next) => {
 const updateAdmin = async(req, res, next) => {
    
   try {
-        const user = await GroupUser.findAll({where : {userId : req.user.id , isAdmin : true}})
+        const user = await GroupUser.findAll({where : {userId : req.user.id , groupId : req.body.groupId, isAdmin : true}})
         if(user.length > 0){
         const id = await  GroupUser.findAll({where : {userId : req.body.userId , groupId : req.body.groupId}})
         const response = await id[0].update({isAdmin : true})
@@ -152,7 +151,7 @@ const updateAdmin = async(req, res, next) => {
 const removeUser = async (req, res, next) =>{
     const t = await sequelize.transaction();
     try {
-        const user = await GroupUser.findAll({where : {userId : req.user.id , isAdmin : true}})
+        const user = await GroupUser.findAll({where : {userId : req.user.id ,groupId : req.params.groupId, isAdmin : true}})
         if(user.length > 0){
             const response = await GroupUser.destroy({where : {userId : req.params.userId , groupId : req.params.groupId}})
             res.status(200).json({
